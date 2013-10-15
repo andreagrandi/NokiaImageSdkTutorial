@@ -39,15 +39,20 @@
             CurrentUICulture of the app at run time.
          -->
 
-        <!--TitlePanel contains the name of the application and page title-->
-        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock Text="MY APPLICATION" Style="{StaticResource PhoneTextNormalStyle}" Margin="12,0"/>
-            <TextBlock Text="page name" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
-        </StackPanel>
-
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-
+            <StackPanel>
+                <Canvas Height="630" Width="480" Tap="OnTakePictureClicked">
+                    <Canvas.Background>
+                        <VideoBrush x:Name="video" Stretch="Fill">
+                            <VideoBrush.RelativeTransform>
+                                <CompositeTransform x:Name="previewTransform" CenterX=".5" CenterY=".5" />
+                            </VideoBrush.RelativeTransform>
+                        </VideoBrush>
+                    </Canvas.Background>
+                </Canvas>
+                <TextBlock x:Name="FlashStatus" Style="{StaticResource PhoneTextTitle2Style}"/>
+            </StackPanel>
         </Grid>
 
         <!--Uncomment to see an alignment grid to help ensure your controls are
